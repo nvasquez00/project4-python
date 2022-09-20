@@ -3,20 +3,7 @@ import os
 import re
 import collections 
 
-months_count ={
-  "Jan": 0,
-  "Feb": 0,
-  "Mar": 0,
-  "Apr": 0,
-  "May": 0,
-  "Jun": 0,
-  "Jul": 0,
-  "Aug": 0,
-  "Sep": 0,
-  "Oct": 0,
-  "Nov": 0,
-  "Dec": 0
-}
+months_count ={"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}
 
 janlogs=open("january.txt", "a+"); feblogs=open("february.txt", "a+"); marlogs=open("march.txt", "a+"); 
 aprlogs=open("april.txt", "a+"); maylogs=open("may.txt", "a+"); junlogs=open("june.txt", "a+");
