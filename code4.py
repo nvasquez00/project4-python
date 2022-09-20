@@ -104,7 +104,7 @@ for line in lines:
     
     else:
         continue
-print("Request Made:")
+print("Total requests made:")
 print(file_len(LOCAL_FILE))
 totalResponses = file_len(LOCAL_FILE)
 print("Average requests per day: ", round(totalResponses/365,2))
