@@ -14,9 +14,7 @@ i=0
 
 redirectCounter = 0
 errorCounter = 0
-# URL of the file
 URL = 'https://s3.amazonaws.com/tcmg476/http_access_log'
-# Where to save our log file
 LOCAL_FILE = 'http_access_log'
 
 def file_len(LOCAL_FILE):
