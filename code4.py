@@ -119,15 +119,15 @@ for line in lines:
     
     else:
         continue
-print("Request Made")
+print("Request Made:")
 print(file_len(LOCAL_FILE))
 totalResponses = file_len(LOCAL_FILE)
-print("Average number for month:", round(totalResponses/12,2))
-print("Average number for week: ",round(totalResponses/52,2))
-print("Average number for day: ", round(totalResponses/365,2))
+print("Average requests per day: ", round(totalResponses/365,2))
+print("Average requests per week: ",round(totalResponses/52,2))
+print("Average requests per month:", round(totalResponses/12,2))
 print("Month Count:", months_count)
-print("Total number of redirects:",redirectCounter)
-print("Percentage of all requests that were redirects (3xx): {0:.2%}".format(redirectCounter/totalResponses))
 print("Total number of Errors:",errorCounter)
 print("Percentage of client error (4xx) requests: {0:.2%}".format(errorCounter/totalResponses))	
+print("Total number of redirects:",redirectCounter)
+print("Percentage of all requests that were redirects (3xx): {0:.2%}".format(redirectCounter/totalResponses))
 fileCount()
