@@ -44,7 +44,6 @@ def fileCount():
 			for file in leastcommon:
 				print(file)
 if not os.path.isfile(LOCAL_FILE):
-    # Download the file and save it to LOCAL_FILE
     urlretrieve(URL, LOCAL_FILE)
 
 
