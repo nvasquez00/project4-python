@@ -29,43 +29,34 @@ def fileCount():
 	with open(LOCAL_FILE) as logs:
 		for line in logs:
 			try:
-				filelog.append(line[line.index("GET")+4:line.index("HTTP")])		#find all files sandwiched between GET requests and HTTP protocol"
+				filelog.append(line[line.index("GET")+4:line.index("HTTP")])		
 			except:
 				pass
 	counter = collections.Counter(filelog)
 	for count in counter.most_common(1):														
 		print("Most commonly requested file: {} with {} requests.".format(str(count[0]), str(count[1])))
-	for count in counter.most_common():					#checking for file requests that only occur once as they must be the least requested
+	for count in counter.most_common():					
 		if str(count[1]) == '1':
 			leastcommon.append(count[0])
-	if leastcommon:										#there are MANY file requests that only occur once in the string though. Print all? 													
+	if leastcommon:										 													
 		response = input("Looks like there were {} file(s) that were requested only once, show all? (y/n)".format(len(leastcommon)))
 		if response == 'y' or response == 'Y':
 			for file in leastcommon:
 				print(file)
-# If the file isn't already there
 if not os.path.isfile(LOCAL_FILE):
     # Download the file and save it to LOCAL_FILE
     urlretrieve(URL, LOCAL_FILE)
 
 
-# Our regex pattern to use later
 pattern = r'(.*?) - (.*) \[(.*?)\] \"(.*?) (.*?)\"? (.+?) (.+) (.+)'
 
-# Create a list with each line from the file
 lines = open(LOCAL_FILE, 'r').readlines()
 
-# Iterate over the lines (the important part, almost everything is done in this block)
 for line in lines:
-    # Match our pattern to the line
     match = re.match(pattern, line)
-
-    # If there wasn't a match (error with regex), continue with iteration, skip this loop
     if not match:
         continue
 
-    # You can get all the info you need from the match groups we created a second ago
-    # Example:
     match.group(0) # The original line
     match.group(3) # The timestamp
     timestamp = match.group(3)
