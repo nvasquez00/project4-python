@@ -51,6 +51,11 @@ pattern = r'(.*?) - (.*) \[(.*?)\] \"(.*?) (.*?)\"? (.+?) (.+) (.+)'
 
 lines = open(LOCAL_FILE, 'r').readlines()
 
+#outside loop
+days_result = []
+date_counter = 0
+current_date = "24/Oct/1994"
+
 for line in lines:
     match = re.match(pattern, line)
     if not match:
@@ -63,6 +68,15 @@ for line in lines:
     months_count[month] += 1
     match.group(7) # The status codes
     
+    #inside loop
+    date = timestamp[0:11]
+    if date == current_date:
+        date_counter += 1
+    else:
+        days_result.append((current_date, date_counter))
+        current_date = date
+        date_counter = 1 
+
     if (match.group(7)[0] == "3"):
         redirectCounter += 1
     elif (match.group(7)[0] == "4"):
@@ -98,6 +112,8 @@ print("Total requests made:")
 print(file_len(LOCAL_FILE))
 totalResponses = file_len(LOCAL_FILE)
 print("Average requests per day: ", round(totalResponses/365,2))
+for day in days_result:
+    print(f"On {day[0]} there were {day[1]} requests")
 print("Average requests per week: ",round(totalResponses/52,2))
 print("Average requests per month:", round(totalResponses/12,2))
 print("Month Count:", months_count)
