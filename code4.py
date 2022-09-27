@@ -129,7 +129,7 @@ for day in days_result:
     print(f"On {day[0]} there were {day[1]} requests")
 print('\033[1m' + "Average requests per week:" + '\033[0m', round(totalResponses / 52, 2))
 print('\033[1m' + "Average requests per month:" + '\033[0m', round(totalResponses / 12, 2))
-print('\033[1m' + "Month Count:" + '\033[0m', months_count)
+print('\033[1m' + "Monthly Request Count:" + '\033[0m', months_count)
 print('\033[1m' + "Total number of Errors:" + '\033[0m', errorCounter)
 print('\033[1m' + "Percentage of client error (4xx) requests: " + '\033[0m' + "{0:.2%}".format(errorCounter / totalResponses))
 print('\033[1m' + "Total number of redirects:" + '\033[0m', redirectCounter)
