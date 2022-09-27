@@ -127,7 +127,7 @@ totalResponses = file_len(LOCAL_FILE)
 print("Average requests per day: ", round(totalResponses / 365, 2))
 for day in days_result:
     print(f"On {day[0]} there were {day[1]} requests")
-print("Average requests per week: ", round(totalResponses / 52, 2))
+print("Average requests per week:", round(totalResponses / 52, 2))
 print("Average requests per month:", round(totalResponses / 12, 2))
 print("Month Count:", months_count)
 print("Total number of Errors:", errorCounter)
