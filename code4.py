@@ -45,13 +45,13 @@ def fileCount():
                 pass
     counter = collections.Counter(filelog)
     for count in counter.most_common(1):
-        print("Most commonly requested file: {} with {} requests.".format(str(count[0]), str(count[1])))
+        print('\033[1m' +"Most commonly requested file: {} with {} requests.".format(str(count[0]), str(count[1])) + '\033[0m')
     for count in counter.most_common():
         if str(count[1]) == '1':
             leastcommon.append(count[0])
     if leastcommon:
         response = input(
-            "Looks like there were {} file(s) that were requested only once, show all? (y/n)".format(len(leastcommon)))
+            '\033[1m' + "Looks like there were {} file(s) that were requested only once, show all? (y/n)".format(len(leastcommon)) + '\033[0m')
         if response == 'y' or response == 'Y':
             for file in leastcommon:
                 print(file)
@@ -121,17 +121,17 @@ for line in lines:
 
     else:
         continue
-print("Total requests made:")
+print('\033[1m' +"Total requests made:" + '\033[0m')
 print(file_len(LOCAL_FILE))
 totalResponses = file_len(LOCAL_FILE)
-print("Average requests per day: ", round(totalResponses / 365, 2))
+print('\033[1m' +"Average requests per day:" + '\033[0m', round(totalResponses / 365, 2))
 for day in days_result:
     print(f"On {day[0]} there were {day[1]} requests")
-print("Average requests per week:", round(totalResponses / 52, 2))
-print("Average requests per month:", round(totalResponses / 12, 2))
-print("Month Count:", months_count)
-print("Total number of Errors:", errorCounter)
-print("Percentage of client error (4xx) requests: {0:.2%}".format(errorCounter / totalResponses))
-print("Total number of redirects:", redirectCounter)
-print("Percentage of all requests that were redirects (3xx): {0:.2%}".format(redirectCounter / totalResponses))
+print('\033[1m' + "Average requests per week:" + '\033[0m', round(totalResponses / 52, 2))
+print('\033[1m' + "Average requests per month:" + '\033[0m', round(totalResponses / 12, 2))
+print('\033[1m' + "Month Count:" + '\033[0m', months_count)
+print('\033[1m' + "Total number of Errors:" + '\033[0m', errorCounter)
+print('\033[1m' + "Percentage of client error (4xx) requests: " + '\033[0m' + "{0:.2%}".format(errorCounter / totalResponses))
+print('\033[1m' + "Total number of redirects:" + '\033[0m', redirectCounter)
+print('\033[1m' + "Percentage of all requests that were redirects (3xx): " + '\033[0m' + "{0:.2%}".format(redirectCounter / totalResponses))
 fileCount()
